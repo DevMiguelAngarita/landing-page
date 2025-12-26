@@ -1,0 +1,781 @@
+/* Service Pages Styles */
+
+/* Service Page Hero */
+.service-page-hero {
+    background: linear-gradient(135deg, rgba(0, 61, 122, 0.9) 0%, rgba(0, 40, 71, 0.85) 100%),
+        url("https://rapidogigantesas.com/wp-content/uploads/2020/06/AdobeStock_90685921-scaled.jpeg") center / cover;
+    padding: 8rem 0 6rem;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.service-page-hero-aerea {
+    background: linear-gradient(135deg, rgba(0, 61, 122, 0.9) 0%, rgba(0, 40, 71, 0.85) 100%),
+        url("https://www.ups.com/assets/resources/images/air-freight-hero-desktop-1440x810.jpg") center / cover;
+}
+
+.service-page-hero-star {
+    background: linear-gradient(135deg, rgba(227, 6, 19, 0.9) 0%, rgba(194, 4, 16, 0.85) 100%),
+        url("https://www.serviveloz.com/wp-content/uploads/2014/04/cajas.jpg") center / cover;
+}
+
+.service-page-hero-warehouse {
+    background: linear-gradient(135deg, rgba(0, 61, 122, 0.9) 0%, rgba(0, 40, 71, 0.85) 100%),
+        url("https://www.trailerstore.es/21076-large_default/rack-picking-almacenaje-y-picking.jpg") center / cover;
+}
+
+.service-page-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.service-page-header p {
+    font-size: 1.4rem;
+    opacity: 0.95;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.star-badge-hero,
+.warehouse-badge-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 0.7rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Service Page Content */
+.service-page-content {
+    padding: 6rem 0;
+    background-color: #f8f9fa;
+}
+
+.service-intro {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.service-intro h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.service-intro .lead {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.highlight-text {
+    font-size: 1.25rem;
+    color: var(--secondary);
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.benefit-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(227, 6, 19, 0.15);
+    border-color: var(--secondary);
+}
+
+.benefit-icon {
+    background: linear-gradient(135deg, var(--secondary) 0%, #c20410 100%);
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 6px 20px rgba(227, 6, 19, 0.3);
+}
+
+.benefit-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.benefit-card p {
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Service Offering */
+.service-offering {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.service-offering h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.offering-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 1.5rem;
+}
+
+.offering-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+    border-radius: 12px;
+    border-left: 4px solid var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.offering-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.offering-item i {
+    font-size: 1.8rem;
+    color: var(--secondary);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.offering-item h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.offering-item p {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Service Requirements */
+.service-requirements {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+    border-radius: 20px;
+    border: 2px solid #e0e0e0;
+}
+
+.service-requirements h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.requirements-intro {
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.requirement-item {
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.requirement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.requirement-item i {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.requirement-item h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.requirement-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.requirement-item li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #666;
+}
+
+.requirement-item li::before {
+    content: "•";
+    color: var(--secondary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* Service CTA */
+.service-cta {
+    max-width: 900px;
+    margin: 4rem auto 0;
+    padding: 3.5rem;
+    background: linear-gradient(135deg, var(--secondary) 0%, #c20410 100%);
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 40px rgba(227, 6, 19, 0.3);
+}
+
+.cta-content i:first-child {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.cta-content h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+/* Ideal For Section */
+.ideal-for-section {
+    max-width: 1000px;
+    margin: 4rem auto;
+}
+
+.ideal-for-section h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.ideal-for-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.ideal-card {
+    padding: 2.5rem 2rem;
+    background: white;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.ideal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(227, 6, 19, 0.15);
+    border-color: var(--secondary);
+}
+
+.ideal-card i {
+    font-size: 3.5rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.ideal-card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.ideal-card p {
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Value Proposition */
+.value-proposition {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.value-proposition h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.value-proposition>p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.value-promises-inline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.promise-inline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.promise-inline-item:hover {
+    border-color: var(--secondary);
+    transform: translateY(-5px);
+}
+
+.promise-inline-item i {
+    font-size: 2.5rem;
+    color: var(--secondary);
+}
+
+.promise-inline-item span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+}
+
+/* Payment Section for Service Pages */
+.payment-section-page {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 3.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #002847 100%);
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 61, 122, 0.3);
+}
+
+.payment-header-page {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.payment-header-page i {
+    font-size: 3rem;
+}
+
+.payment-header-page h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.payment-intro-page {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.payment-section-page h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.payment-methods-page {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.payment-method-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.payment-method-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.payment-method-card i {
+    font-size: 2.5rem;
+}
+
+.payment-method-card span {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.payment-benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.payment-benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary);
+}
+
+.payment-benefit-item i {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.payment-benefit-item span {
+    font-weight: 600;
+}
+
+.payment-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: var(--secondary);
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(227, 6, 19, 0.5);
+}
+
+.payment-cta-box i {
+    font-size: 2rem;
+}
+
+/* Target Section for Service Pages */
+.target-section {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.target-section h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.target-intro {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+}
+
+.target-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.target-card {
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.target-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(227, 6, 19, 0.15);
+    border-color: var(--secondary);
+}
+
+.target-card i {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+.target-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+}
+
+.target-card p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Warehouse Types */
+.warehouse-types {
+    max-width: 1000px;
+    margin: 4rem auto;
+}
+
+.warehouse-types h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.type-card {
+    padding: 2.5rem 2rem;
+    background: white;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.type-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(227, 6, 19, 0.15);
+    border-color: var(--secondary);
+}
+
+.type-card i {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+.type-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+}
+
+.type-card p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Footer for Service Pages */
+.service-footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 4rem 0 1.5rem;
+    margin-top: 4rem;
+}
+
+.service-footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.service-footer-section h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+}
+
+.service-footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.service-footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.service-footer-section a:hover {
+    color: var(--secondary);
+    padding-left: 5px;
+}
+
+.service-footer-section p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.service-social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.service-social-links a {
+    width: 45px;
+    height: 45px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.service-social-links a:hover {
+    background-color: #c20410;
+    transform: translateY(-3px) scale(1.1);
+}
+
+.service-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .service-page-header p {
+        font-size: 1.1rem;
+    }
+
+    .benefits-grid,
+    .offering-list,
+    .requirements-grid,
+    .ideal-for-grid,
+    .target-grid,
+    .types-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-offering,
+    .service-requirements,
+    .value-proposition,
+    .payment-section-page,
+    .target-section {
+        padding: 2rem;
+    }
+
+    .service-cta {
+        padding: 2.5rem 2rem;
+    }
+}

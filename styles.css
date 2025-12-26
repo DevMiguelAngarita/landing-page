@@ -1,10 +1,10 @@
 :root {
-    --primary: #003D7A;
-    --secondary: #E30613;
-    --light: #F8F9FA;
-    --dark: #1A1A1A;
-    --border-color: #E0E0E0;
-    --gray-light: #F3F4F6;
+    --primary: #003d7a;
+    --secondary: #e30613;
+    --light: #f8f9fa;
+    --dark: #1a1a1a;
+    --border-color: #e0e0e0;
+    --gray-light: #f3f4f6;
 }
 
 * {
@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     line-height: 1.6;
 }
@@ -71,7 +71,7 @@ body {
 }
 
 .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 2px;
@@ -111,7 +111,7 @@ body {
 /* ========== HERO SECTION ========== */
 .hero {
     background: linear-gradient(135deg, rgba(0, 61, 122, 0.75) 0%, rgba(0, 61, 122, 0.6) 100%),
-        url('https://rapidogigantesas.com/wp-content/uploads/2020/06/AdobeStock_90685921-scaled.jpeg') center/cover;
+        url("https://rapidogigantesas.com/wp-content/uploads/2020/06/AdobeStock_90685921-scaled.jpeg") center / cover;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -395,13 +395,6 @@ body {
     display: block;
 }
 
-@media (max-width: 768px) {
-    .why-us-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
 /* ========== CONTADOR ESTADÍSTICAS ========== */
 .stats-section {
     background: linear-gradient(135deg, var(--primary) 0%, #002847 100%);
@@ -672,43 +665,940 @@ body {
     opacity: 0.8;
 }
 
-/* ========== RESPONSIVE ========== */
+/* SECCIÓN 2 - ¿QUIÉNES SOMOS? */
+.about-section {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-main-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.about-secondary-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.about-feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.5rem;
+    background: var(--gray-light);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.about-feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(227, 6, 19, 0.1);
+}
+
+.about-feature-item i {
+    font-size: 2.5rem;
+    color: var(--secondary);
+}
+
+.about-feature-item span {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+/* SECCIÓN 3 - ¿QUÉ HACEMOS? */
+.what-we-do-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--primary) 0%, #002847 100%);
+    color: white;
+}
+
+.what-we-do-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.what-we-do-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+.what-we-do-section .section-title h2 {
+    color: white;
+}
+
+/* SECCIÓN 4 & 5 - SERVICIOS DETALLADOS */
+.service-detail-section {
+    padding: 6rem 0;
+}
+
+.service-terrestre {
+    background-color: var(--light);
+}
+
+.service-aerea {
+    background-color: white;
+}
+
+.service-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.service-detail-grid.reverse {
+    direction: ltr;
+}
+
+.service-detail-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.service-main-text {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.service-secondary-text {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.service-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.service-terrestre .benefit-item {
+    background: white;
+}
+
+.service-aerea .benefit-item {
+    background: var(--gray-light);
+}
+
+.benefit-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-item i {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    min-width: 30px;
+}
+
+.benefit-item span {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.service-ideal-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 2rem 0;
+}
+
+.service-ideal-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    font-size: 1.05rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.service-ideal-list i {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+.service-highlight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--secondary) 0%, #c20410 100%);
+    color: white;
+    border-radius: 10px;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.service-highlight i {
+    font-size: 2rem;
+}
+
+.service-detail-image {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.service-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Adding missing styles for service detail buttons */
+.btn-service-detail {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--secondary) 0%, #c20410 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(227, 6, 19, 0.3);
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+.btn-service-detail:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(227, 6, 19, 0.5);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-service-detail i {
+    font-size: 1.1rem;
+}
+
+.btn-service-detail-large {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* SERVICIO ESTRELLA - ÚLTIMA MILLA */
+.star-service-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+}
+
+.star-service-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.star-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+    color: var(--primary);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.star-badge i {
+    font-size: 1.2rem;
+}
+
+.star-service-header h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.impact-text {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    font-weight: 700;
+    font-style: italic;
+}
+
+.star-service-intro {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.intro-main {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.intro-secondary {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.intro-highlight {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.star-service-value {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    padding: 3rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.star-service-value h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.star-service-value>p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.value-promises {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.promise-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: var(--gray-light);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.promise-item i {
+    font-size: 3rem;
+    color: var(--secondary);
+}
+
+.promise-item span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Sistema de pago contra entrega */
+.payment-system-section {
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #002847 100%);
+    color: white;
+    border-radius: 15px;
+}
+
+.payment-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.payment-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.payment-header i {
+    font-size: 3rem;
+    color: white;
+}
+
+/* Adding missing styles for payment system modern section */
+.payment-system-modern {
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #002847 100%);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.payment-header-modern {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.payment-icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: rgba(227, 6, 19, 0.2);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+
+.payment-icon-badge i {
+    font-size: 2.5rem;
+    color: var(--secondary);
+}
+
+.payment-header-modern h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.payment-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.95;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.payment-methods-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.payment-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.payment-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    border-color: var(--secondary);
+}
+
+.payment-card-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.payment-card-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.payment-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.payment-card p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    color: white;
+}
+
+.payment-process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.process-step {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content i {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.step-content h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.payment-cta-modern {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--secondary);
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.payment-cta-modern i {
+    font-size: 2rem;
+    color: white;
+}
+
+.payment-cta-modern span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* Adding missing styles for benefits modern section */
+.benefits-modern-section {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 3rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.benefits-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.benefits-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-modern-card {
+    padding: 2rem;
+    background: var(--gray-light);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.benefit-modern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(227, 6, 19, 0.15);
+    border-color: var(--secondary);
+    background: white;
+}
+
+.benefit-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--secondary) 0%, #c20410 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.benefit-modern-card:hover .benefit-icon-wrapper {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.benefit-icon-wrapper i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.benefit-modern-card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+}
+
+.benefit-modern-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Adding missing styles for target audience modern section */
+.target-audience-modern {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.audience-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.audience-subtitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--secondary);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.audience-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.audience-modern-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.audience-modern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 61, 122, 0.15);
+    border-color: var(--primary);
+}
+
+.audience-card-header {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary) 0%, #002847 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.audience-modern-card:hover .audience-card-header {
+    transform: rotate(-10deg) scale(1.1);
+    background: linear-gradient(135deg, var(--secondary) 0%, #c20410 100%);
+}
+
+.audience-card-header i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.audience-modern-card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+}
+
+.audience-modern-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.audience-cta-modern {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #002847 100%);
+    color: white;
+    border-radius: 10px;
+    margin-top: 3rem;
+}
+
+.audience-cta-modern i {
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+.audience-cta-modern span {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Adding missing styles for warehouse service section */
+.warehouse-service-section {
+    padding: 6rem 0;
+    background: white;
+}
+
+.warehouse-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.warehouse-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, var(--secondary) 0%, #c20410 100%);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(227, 6, 19, 0.3);
+}
+
+.warehouse-badge i {
+    font-size: 1.2rem;
+}
+
+.warehouse-header h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.warehouse-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.warehouse-main-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.warehouse-secondary-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.warehouse-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.warehouse-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--gray-light);
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary);
+    font-size: 1.05rem;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.warehouse-features-list li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.warehouse-features-list i {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    min-width: 30px;
+}
+
+.warehouse-highlight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #002847 100%);
+    color: white;
+    border-radius: 10px;
+    margin: 2rem 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.warehouse-highlight i {
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+.warehouse-benefits {
+    background: var(--gray-light);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.warehouse-benefits h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.warehouse-benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--secondary);
+}
+
+.warehouse-benefit-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(227, 6, 19, 0.15);
+}
+
+.warehouse-benefit-item i {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    min-width: 30px;
+}
+
+.warehouse-benefit-item span {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
 @media (max-width: 768px) {
-    .tracking-content {
-        flex-direction: column;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .btn-primary-custom,
-    .btn-secondary-custom {
-        width: 100%;
-    }
-
-    .contact-wrapper {
+    .why-us-content {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
     }
 
-    .why-us-text h2,
-    .section-title h2,
-    .contact-section h2,
-    .map-section h2 {
-        font-size: 2rem;
+    .warehouse-content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    .contact-form {
-        padding: 2rem;
+    .payment-methods-modern {
+        grid-template-columns: 1fr;
     }
 
-    #mapa {
-        height: 350px;
+    .payment-process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-grid-modern {
+        grid-template-columns: 1fr;
+    }
+
+    .audience-cards-grid {
+        grid-template-columns: 1fr;
     }
 }

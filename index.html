@@ -60,11 +60,11 @@
                             <i class="fas fa-search-location"></i> Rastrear Guía
                         </button>
                     </li>
-                    <li class="nav-item ms-2">
+                    <!-- <li class="nav-item ms-2">
                         <button class="btn-login-navbar" onclick="alert('Módulo de inicio de sesión en desarrollo')">
                             <i class="fas fa-user-circle"></i> Ingresar
                         </button>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -316,7 +316,7 @@
                 </div>
 
                 <div class="why-us-image" data-aos="fade-left">
-                    <img src="https://www.serviveloz.com/wp-content/uploads/2014/04/cajas.jpg"
+                    <img src="/images/design-mode/cajas.jpg"
                         alt="Equipo profesional de gofast">
                 </div>
             </div>
@@ -750,138 +750,732 @@
 
     <!-- AOS JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Modal de Cotización -->
+    <div class="modal fade" id="modalCotizacion" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-calculator"></i> Cotizar Envío</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formCotizacion">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Provincia Origen *</label>
+                                <select id="provinciaOrigen" class="form-select" required>
+                                    <option value="">-- Seleccione --</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Cantón Origen *</label>
+                                <select id="cantonOrigen" class="form-select" disabled required>
+                                    <option value="">-- Seleccione provincia primero --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Distrito Origen *</label>
+                                <select id="distritoOrigen" class="form-select" disabled required>
+                                    <option value="">-- Seleccione cantón primero --</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Código Origen</label>
+                                <input type="text" id="codigoOrigen" class="form-control" readonly style="background:#f5f5f5;">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Provincia Destino *</label>
+                                <select id="provinciaDestino" class="form-select" required>
+                                    <option value="">-- Seleccione --</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Cantón Destino *</label>
+                                <select id="cantonDestino" class="form-select" disabled required>
+                                    <option value="">-- Seleccione provincia primero --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Distrito Destino *</label>
+                                <select id="distritoDestino" class="form-select" disabled required>
+                                    <option value="">-- Seleccione cantón primero --</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Código Destino</label>
+                                <input type="text" id="codigoDestino" class="form-control" readonly style="background:#f5f5f5;">
+                            </div>
+                        </div>
+                        <hr>
+                        <h6 class="mb-3">Información de Piezas</h6>
+                        <div id="contenedorPiezas">
+                            <div class="pieza-item border rounded p-3 mb-3" data-pieza="1">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <strong>Pieza #1</strong>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Unidades *</label>
+                                        <input type="number" class="form-control pieza-unidades" min="1" value="1" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Peso (kg) *</label>
+                                        <input type="number" class="form-control pieza-peso" step="0.01" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="form-label">Alto (cm) *</label>
+                                        <input type="number" class="form-control pieza-alto" step="0.01" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="form-label">Ancho (cm) *</label>
+                                        <input type="number" class="form-control pieza-ancho" step="0.01" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="form-label">Largo (cm) *</label>
+                                        <input type="number" class="form-control pieza-largo" step="0.01" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-secondary btn-sm mb-3" onclick="agregarPieza()">
+                            <i class="fas fa-plus"></i> Agregar otra pieza
+                        </button>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Valor Declarado *</label>
+                                <input type="number" id="valorDeclarado" class="form-control" step="0.01" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Método de Envío *</label>
+                                <select id="metodoEnvio" class="form-select" required>
+                                    <option value="">-- Seleccione --</option>
+                                    <option value="Terrestre" selected>Terrestre</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3" id="contenedorServicio" style="display:none;">
+                            <div class="col-md-12">
+                                <label class="form-label">Servicio Terrestre *</label>
+                                <select id="servicioTerrestre" class="form-select">
+                                    <option value="">-- Seleccione el servicio --</option>
+                                    <option value="Premier">MERCANCÍA PREMIER</option>
+                                    <option value="Express">UNITARIO</option>
+                                    <option value="Industrial">MERCANCÍA INDUSTRIAL</option>
+                                    <option value="Mensajeria">DOCUMENTO</option>
+                                    <option value="Paqueteo">MERCANCÍA</option>
+                                    <option value="Especial">ESPECIAL</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-search"></i> Calcular Cotización
+                        </button>
+                    </form>
+                    <div id="resultadoCotizacion" class="mt-4" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Script personalizado -->
+    <!-- Modal de Trazabilidad -->
+    <div class="modal fade" id="modalTrazabilidad" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-map-marked-alt"></i> Rastreo de Guía</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="resultadoTrazabilidad"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Inicializar AOS
         AOS.init({
             duration: 800,
             offset: 100,
             once: true
         });
 
-        // Navbar sticky con cambio de estilo
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+        // CONFIGURACIÓN DE LA API
+        const API_BASE_URL = 'https://sdw.com.co/Gofastcr/api'; // Actualizar con tu dominio
+        const API_KEY = 'demo_key_12345'; // Actualizar con tu API Key
+
+        // ========== FUNCIONES PARA CARGAR PROVINCIAS, CANTONES Y DISTRITOS ==========
+        async function cargarProvincias() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/provincias.php`, {
+                    headers: { 'X-API-Key': API_KEY }
+                });
+                const result = await response.json();
+                
+                if (!result.success) {
+                    console.error('[v0] Error:', result.message);
+                    return;
+                }
+                
+                const selectOrigen = document.getElementById('provinciaOrigen');
+                const selectDestino = document.getElementById('provinciaDestino');
+                
+                result.data.provincias.forEach(prov => {
+                    selectOrigen.innerHTML += `<option value="${prov.codigo_provincia}">${prov.provincia}</option>`;
+                    selectDestino.innerHTML += `<option value="${prov.codigo_provincia}">${prov.provincia}</option>`;
+                });
+                
+                console.log('[v0] Provincias cargadas:', result.data.total);
+            } catch (error) {
+                console.error('[v0] Error al cargar provincias:', error);
+            }
+        }
+
+        async function cargarCantones(codigoProvincia, tipo) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/ubicacion.php?action=cantones&codigo_provincia=${codigoProvincia}`, {
+                    headers: { 'X-API-Key': API_KEY }
+                });
+                const result = await response.json();
+                
+                if (!result.success) {
+                    console.error('[v0] Error:', result.message);
+                    return;
+                }
+                
+                const selectId = tipo === 'origen' ? 'cantonOrigen' : 'cantonDestino';
+                const select = document.getElementById(selectId);
+                
+                select.disabled = false;
+                select.innerHTML = '<option value="">-- Seleccione cantón --</option>';
+                result.data.cantones.forEach(cant => {
+                    select.innerHTML += `<option value="${cant.codigo_canton}">${cant.canton}</option>`;
+                });
+                
+                console.log(`[v0] Cantones ${tipo} cargados:`, result.data.total);
+            } catch (error) {
+                console.error(`[v0] Error al cargar cantones ${tipo}:`, error);
+            }
+        }
+
+        async function cargarDistritos(codigoProvincia, codigoCanton, tipo) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/ubicacion.php?action=distritos&codigo_provincia=${codigoProvincia}&codigo_canton=${codigoCanton}`, {
+                    headers: { 'X-API-Key': API_KEY }
+                });
+                const result = await response.json();
+                
+                if (!result.success) {
+                    console.error('[v0] Error:', result.message);
+                    return;
+                }
+                
+                const selectId = tipo === 'origen' ? 'distritoOrigen' : 'distritoDestino';
+                const select = document.getElementById(selectId);
+                
+                select.disabled = false;
+                select.innerHTML = '<option value="">-- Seleccione distrito --</option>';
+                result.data.distritos.forEach(dist => {
+                    const bloqueado = dist.bloqueado ? ' (BLOQUEADO)' : '';
+                    select.innerHTML += `<option value="${dist.codigo_distrito_completo}" ${dist.bloqueado ? 'disabled' : ''}>${dist.distrito}${bloqueado}</option>`;
+                });
+                
+                console.log(`[v0] Distritos ${tipo} cargados:`, result.data.total);
+            } catch (error) {
+                console.error(`[v0] Error al cargar distritos ${tipo}:`, error);
+            }
+        }
+
+        // Event listeners para origen
+        document.getElementById('provinciaOrigen')?.addEventListener('change', function() {
+            const codigo = this.value;
+            document.getElementById('cantonOrigen').disabled = true;
+            document.getElementById('distritoOrigen').disabled = true;
+            document.getElementById('codigoOrigen').value = '';
+            if (codigo) cargarCantones(codigo, 'origen');
+        });
+
+        document.getElementById('cantonOrigen')?.addEventListener('change', function() {
+            const provincia = document.getElementById('provinciaOrigen').value;
+            const canton = this.value;
+            document.getElementById('distritoOrigen').disabled = true;
+            document.getElementById('codigoOrigen').value = '';
+            if (provincia && canton) cargarDistritos(provincia, canton, 'origen');
+        });
+
+        document.getElementById('distritoOrigen')?.addEventListener('change', function() {
+            document.getElementById('codigoOrigen').value = this.value;
+        });
+
+        // Event listeners para destino
+        document.getElementById('provinciaDestino')?.addEventListener('change', function() {
+            const codigo = this.value;
+            document.getElementById('cantonDestino').disabled = true;
+            document.getElementById('distritoDestino').disabled = true;
+            document.getElementById('codigoDestino').value = '';
+            if (codigo) cargarCantones(codigo, 'destino');
+        });
+
+        document.getElementById('cantonDestino')?.addEventListener('change', function() {
+            const provincia = document.getElementById('provinciaDestino').value;
+            const canton = this.value;
+            document.getElementById('distritoDestino').disabled = true;
+            document.getElementById('codigoDestino').value = '';
+            if (provincia && canton) cargarDistritos(provincia, canton, 'destino');
+        });
+
+        document.getElementById('distritoDestino')?.addEventListener('change', function() {
+            document.getElementById('codigoDestino').value = this.value;
+        });
+
+        // ========== FUNCIONES PARA PIEZAS ==========
+        let contadorPiezas = 1;
+        
+        function agregarPieza() {
+            contadorPiezas++;
+            const contenedor = document.getElementById('contenedorPiezas');
+            const nuevaPieza = `
+                <div class="pieza-item border rounded p-3 mb-3" data-pieza="${contadorPiezas}">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <strong>Pieza #${contadorPiezas}</strong>
+                        <button type="button" class="btn btn-sm btn-danger" onclick="eliminarPieza(${contadorPiezas})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-3">
+                            <label class="form-label">Unidades *</label>
+                            <input type="number" class="form-control pieza-unidades" min="1" value="1" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Peso (kg) *</label>
+                            <input type="number" class="form-control pieza-peso" step="0.01" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Alto (cm) *</label>
+                            <input type="number" class="form-control pieza-alto" step="0.01" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Ancho (cm) *</label>
+                            <input type="number" class="form-control pieza-ancho" step="0.01" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Largo (cm) *</label>
+                            <input type="number" class="form-control pieza-largo" step="0.01" required>
+                        </div>
+                    </div>
+                </div>
+            `;
+            contenedor.insertAdjacentHTML('beforeend', nuevaPieza);
+        }
+        
+        function eliminarPieza(numeroPieza) {
+            const pieza = document.querySelector(`[data-pieza="${numeroPieza}"]`);
+            if (pieza) {
+                pieza.remove();
+            }
+        }
+        
+        // Mostrar/ocultar servicio terrestre según método de envío
+        document.getElementById('metodoEnvio')?.addEventListener('change', function() {
+            const contenedorServicio = document.getElementById('contenedorServicio');
+            if (this.value === 'Terrestre') {
+                contenedorServicio.style.display = 'block';
             } else {
-                navbar.classList.remove('scrolled');
+                contenedorServicio.style.display = 'none';
+            }
+        });
+        
+        // Mostrar servicio terrestre por defecto al abrir el modal
+        document.getElementById('modalCotizacion')?.addEventListener('shown.bs.modal', function() {
+            const metodoEnvio = document.getElementById('metodoEnvio');
+            if (metodoEnvio.value === 'Terrestre') {
+                document.getElementById('contenedorServicio').style.display = 'block';
             }
         });
 
-        // Contador de estadísticas
-        function animar_numeros() {
-            const stats = document.querySelectorAll('.stat-number');
-
-            stats.forEach(stat => {
-                const objetivo = parseInt(stat.getAttribute('data-target'));
-                let actual = 0;
-                const incremento = objetivo / 50;
-
-                const intervalo = setInterval(() => {
-                    actual += incremento;
-                    if (actual >= objetivo) {
-                        stat.textContent = objetivo.toLocaleString();
-                        clearInterval(intervalo);
-                    } else {
-                        stat.textContent = Math.floor(actual).toLocaleString();
-                    }
-                }, 30);
+        // ========== FUNCIÓN DE COTIZACIÓN ==========
+        document.getElementById('formCotizacion')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Recopilar todas las piezas
+            const piezasElements = document.querySelectorAll('.pieza-item');
+            const piezas = [];
+            
+            piezasElements.forEach((piezaEl) => {
+                const unidades = parseInt(piezaEl.querySelector('.pieza-unidades').value) || 1;
+                const peso = parseFloat(piezaEl.querySelector('.pieza-peso').value);
+                const alto = parseFloat(piezaEl.querySelector('.pieza-alto').value);
+                const ancho = parseFloat(piezaEl.querySelector('.pieza-ancho').value);
+                const largo = parseFloat(piezaEl.querySelector('.pieza-largo').value);
+                
+                // Agregar la pieza tantas veces como unidades especificadas
+                for (let i = 0; i < unidades; i++) {
+                    piezas.push({ peso, alto, ancho, largo });
+                }
             });
-        }
+            
+            const data = {
+                codigo_origen: document.getElementById('codigoOrigen').value,
+                codigo_destino: document.getElementById('codigoDestino').value,
+                piezas: piezas,
+                valor_declarado: parseFloat(document.getElementById('valorDeclarado').value),
+                metodo_envio: document.getElementById('metodoEnvio').value,
+                servicio: document.getElementById('servicioTerrestre')?.value || null
+            };
 
-        // Activar contador cuando está en vista
-        const statsSection = document.querySelector('.stats-section');
-        if (statsSection) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !entry.target.classList.contains('animado')) {
-                        animar_numeros();
-                        entry.target.classList.add('animado');
-                    }
+            console.log('[v0] Enviando cotización:', data);
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/cotizacion.php`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify(data)
                 });
-            });
-            observer.observe(statsSection);
+
+                const result = await response.json();
+                console.log('[v0] Resultado cotización:', result);
+
+                if (result.success) {
+                    mostrarResultadoCotizacion(result.data);
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                console.error('[v0] Error en cotización:', error);
+                alert('Error al realizar la cotización. Verifica la configuración de la API.');
+            }
+        });
+
+        function mostrarResultadoCotizacion(data) {
+            const html = `
+                <div class="alert alert-success">
+                    <h5><i class="fas fa-check-circle"></i> Cotización Calculada</h5>
+                    <p class="mb-2"><strong>Tipo de Trayecto:</strong> ${data.tipo_trayecto}</p>
+                    <hr>
+                    <table class="table table-sm table-bordered mb-0">
+                        <tbody>
+                            <tr>
+                                <td><strong>Peso Utilizado</strong></td>
+                                <td>${data.peso_cobrar} kg (${data.peso_utilizado})</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bultos/Piezas</strong></td>
+                                <td>${data.total_piezas}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tasa de Manejo</strong></td>
+                                <td>$${Number(data.tasa_manejo).toLocaleString('es-CR')}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Flete Base</strong></td>
+                                <td>$${Number(data.valor_flete).toLocaleString('es-CR')}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IVA (${data.iva_pct}%)</strong></td>
+                                <td>$${Number(data.iva).toLocaleString('es-CR')}</td>
+                            </tr>
+                            ${data.descuento > 0 ? `
+                            <tr>
+                                <td><strong>Descuento (${data.descuento_pct}%)</strong></td>
+                                <td class="text-danger">-$${Number(data.descuento).toLocaleString('es-CR')}</td>
+                            </tr>
+                            ` : ''}
+                            <tr class="table-primary">
+                                <td><strong>Total</strong></td>
+                                <td><strong>$${Number(data.valor_total).toLocaleString('es-CR')}</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <small class="text-muted d-block mt-2">
+                        Peso Físico: ${data.peso_fisico} kg | Peso Volumétrico: ${data.peso_volumetrico} kg
+                    </small>
+                </div>
+            `;
+            document.getElementById('resultadoCotizacion').innerHTML = html;
+            document.getElementById('resultadoCotizacion').style.display = 'block';
         }
 
-        // Función rastrear paquete
-        function rastrearPaquete() {
-            const numero = document.querySelector('.tracking-bar input').value.trim();
-            if (!numero) {
-                alert('Por favor ingresa un número de guía');
+        // ========== FUNCIÓN DE RASTREO ==========
+        async function rastrearPaquete() {
+            const input = document.querySelector('.tracking-bar input');
+            const numeroGuia = input.value.trim();
+
+            if (numeroGuia === '') {
+                alert('Por favor, ingresa un número de guía');
                 return;
             }
-            alert(`Rastreando paquete: ${numero}\n\nEsta funcionalidad estará disponible pronto.`);
+
+            console.log('[v0] Rastreando guía:', numeroGuia);
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/trazabilidad.php?guia=${numeroGuia}`, {
+                    headers: {
+                        'X-API-Key': API_KEY
+                    }
+                });
+
+                const result = await response.json();
+                console.log('[v0] Resultado trazabilidad:', result);
+
+                if (result.success) {
+                    mostrarResultadoTrazabilidad(result.data);
+                    const modal = new bootstrap.Modal(document.getElementById('modalTrazabilidad'));
+                    modal.show();
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                console.error('[v0] Error en rastreo:', error);
+                alert('Error al rastrear la guía. Verifica la configuración de la API.');
+            }
         }
 
-        // Permitir Enter en input de rastreo
-        document.querySelector('.tracking-bar input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                rastrearPaquete();
+        function mostrarResultadoTrazabilidad(data) {
+            // Sección de información de la guía
+            let infoGuiaHtml = `
+                <div class="alert alert-info mb-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h4><i class="fas fa-box"></i> Guía: ${data.guia.numero}</h4>
+                            <p class="mb-1"><strong>Estado Actual:</strong> <span class="badge bg-primary">${data.guia.estado_actual}</span></p>
+                            <p class="mb-0"><strong>Fecha Creación:</strong> ${data.guia.fecha_creacion}</p>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            ${data.guia.alfa ? `<small class="text-muted">Alfa: ${data.guia.alfa}</small><br>` : ''}
+                            <small class="text-muted">ID: ${data.guia.id_guia}</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Sección de Remitente
+            let remitenteHtml = `
+                <div class="card mb-3">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fas fa-user"></i> <strong>Remitente</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="mb-2"><strong>Nombre del Cliente:</strong> ${data.remitente.nombre_cliente || 'N/A'}</p>
+                                <p class="mb-2"><strong>NIT:</strong> ${data.remitente.nit || 'N/A'}</p>
+                                <p class="mb-2"><strong>Dirección:</strong> ${data.remitente.direccion || 'N/A'}</p>
+                                <p class="mb-2"><strong>Teléfono:</strong> ${data.remitente.telefono || 'N/A'}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-2"><strong>Celular:</strong> ${data.remitente.celular || 'N/A'}</p>
+                                <p class="mb-2"><strong>Contacto:</strong> ${data.remitente.contacto || 'N/A'}</p>
+                                <p class="mb-2"><strong>Correo:</strong> ${data.remitente.correo || 'N/A'}</p>
+                                <p class="mb-2"><strong>Ciudad:</strong> ${data.remitente.ciudad || 'N/A'}</p>
+                                <p class="mb-2"><strong>Método de Pago:</strong> <span class="badge bg-success">${data.remitente.metodo_pago || 'N/A'}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Sección de Destinatario
+            let destinatarioHtml = `
+                <div class="card mb-3">
+                    <div class="card-header bg-success text-white">
+                        <i class="fas fa-map-marker-alt"></i> <strong>Destinatario</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="mb-2"><strong>Nombre:</strong> ${data.destinatario.nombre || 'N/A'}</p>
+                                <p class="mb-2"><strong>NIT:</strong> ${data.destinatario.nit || 'N/A'}</p>
+                                <p class="mb-2"><strong>Dirección:</strong> ${data.destinatario.direccion || 'N/A'}</p>
+                                <p class="mb-2"><strong>Teléfono:</strong> ${data.destinatario.telefono || 'N/A'}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-2"><strong>Correo:</strong> ${data.destinatario.correo || 'N/A'}</p>
+                                <p class="mb-2"><strong>Código Postal:</strong> ${data.destinatario.codigo_postal || 'N/A'}</p>
+                                <p class="mb-2"><strong>Ciudad:</strong> ${data.destinatario.ciudad || 'N/A'}</p>
+                                <p class="mb-2"><strong>Servicio:</strong> <span class="badge bg-info">${data.destinatario.servicio || 'N/A'}</span></p>
+                                <p class="mb-2"><strong>Método de Envío:</strong> ${data.destinatario.metodo_envio || 'N/A'}</p>
+                                <p class="mb-2"><strong>Tipo de Trayecto:</strong> <span class="badge bg-warning text-dark">${data.destinatario.tipo_trayecto || 'N/A'}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Sección de Información
+            let informacionHtml = `
+                <div class="card mb-3">
+                    <div class="card-header bg-info text-white">
+                        <i class="fas fa-info-circle"></i> <strong>Información del Envío</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="mb-2"><strong>Contenido:</strong> ${data.informacion.contenido || 'N/A'}</p>
+                                <p class="mb-2"><strong>Documento Cliente:</strong> ${data.informacion.documento_cliente || 'N/A'}</p>
+                                <p class="mb-2"><strong>Documento Retorno Guía:</strong> ${data.informacion.documento_retorno_guia || 'N/A'}</p>
+                                <p class="mb-2"><strong>Valor Declarado:</strong> $${parseFloat(data.informacion.valor_declarado || 0).toFixed(2)}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-2"><strong>Estado:</strong> <span class="badge bg-primary">${data.informacion.estado || 'N/A'}</span></p>
+                                <p class="mb-2"><strong>Fecha Creación:</strong> ${data.informacion.fecha_creacion || 'N/A'}</p>
+                                <p class="mb-2"><strong>Usuario:</strong> ${data.informacion.usuario || 'N/A'}</p>
+                                <p class="mb-2"><strong>Conductor:</strong> ${data.informacion.conductor || 'N/A'}</p>
+                                <p class="mb-2"><strong>Observaciones:</strong> ${data.informacion.observaciones || 'N/A'}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Sección de Quien Recibe
+            let quienRecibeHtml = '';
+            if (data.quien_recibe && (data.quien_recibe.nombre !== 'N/A' || data.quien_recibe.documento !== 'N/A')) {
+                quienRecibeHtml = `
+                    <div class="card mb-3">
+                        <div class="card-header bg-warning">
+                            <i class="fas fa-user-check"></i> <strong>Datos de Quien Recibe</strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="mb-2"><strong>Nombre:</strong> ${data.quien_recibe.nombre || 'N/A'}</p>
+                                    <p class="mb-2"><strong>Documento:</strong> ${data.quien_recibe.documento || 'N/A'}</p>
+                                </div>
+                                ${data.quien_recibe.firma ? `
+                                <div class="col-md-6">
+                                    <p class="mb-2"><strong>Firma:</strong></p>
+                                    <img src="${data.quien_recibe.firma}" alt="Firma" style="max-width: 200px; border: 1px solid #ddd; padding: 5px;">
+                                </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
             }
-        });
 
-        // Enviar formulario
-        function enviarFormulario(event) {
-            event.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const email = document.getElementById('email').value;
-            const asunto = document.getElementById('asunto').value;
+            // Sección de Piezas
+            let piezasHtml = '';
+            if (data.piezas && data.piezas.lista && data.piezas.lista.length > 0) {
+                piezasHtml = `
+                    <div class="card mb-3">
+                        <div class="card-header bg-secondary text-white">
+                            <i class="fas fa-boxes"></i> <strong>Piezas del Envío</strong>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Total de Piezas:</strong> ${data.piezas.total_piezas}</p>
+                            <p><strong>Peso Físico Total:</strong> ${data.piezas.peso_fisico_total} kg</p>
+                            <p><strong>Peso Volumétrico Total:</strong> ${data.piezas.peso_volumetrico_total} kg</p>
+                            <table class="table table-sm table-striped mt-3">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Peso (kg)</th>
+                                        <th>Alto (cm)</th>
+                                        <th>Ancho (cm)</th>
+                                        <th>Largo (cm)</th>
+                                        <th>Peso Vol. (kg)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.piezas.lista.map((pieza, index) => `
+                                        <tr>
+                                            <td>${index + 1}</td>
+                                            <td>${pieza.peso}</td>
+                                            <td>${pieza.alto}</td>
+                                            <td>${pieza.ancho}</td>
+                                            <td>${pieza.largo}</td>
+                                            <td>${pieza.peso_volumetrico}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
 
-            alert(`Gracias ${nombre}, tu mensaje ha sido enviado correctamente.\n\nNos contactaremos a ${email} pronto.`);
+            // Sección de Trazabilidad
+            let trazabilidadHtml = '';
+            if (data.trazabilidad && data.trazabilidad.length > 0) {
+                trazabilidadHtml = `
+                    <div class="card mb-3">
+                        <div class="card-header bg-dark text-white">
+                            <i class="fas fa-route"></i> <strong>Historial de Trazabilidad</strong>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Estado</th>
+                                        <th>Fecha</th>
+                                        <th>Ciudad</th>
+                                        <th>Usuario</th>
+                                        <th>Novedad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.trazabilidad.map(t => `
+                                        <tr>
+                                            <td><span class="badge bg-info">${t.estado || 'N/A'}</span></td>
+                                            <td>${t.fecha || 'N/A'}</td>
+                                            <td>${t.ciudad || 'N/A'}</td>
+                                            <td>${t.usuario || 'N/A'}</td>
+                                            <td>${t.novedad || 'N/A'}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
 
-            event.target.reset();
+            // Sección de Coordenadas
+            let coordenadasHtml = '';
+            if (data.coordenadas && data.coordenadas.latitud && data.coordenadas.longitud) {
+                coordenadasHtml = `
+                    <div class="card mb-3">
+                        <div class="card-header bg-danger text-white">
+                            <i class="fas fa-map-pin"></i> <strong>Ubicación de Entrega</strong>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Latitud:</strong> ${data.coordenadas.latitud}</p>
+                            <p><strong>Longitud:</strong> ${data.coordenadas.longitud}</p>
+                            <a href="https://www.google.com/maps?q=${data.coordenadas.latitud},${data.coordenadas.longitud}" target="_blank" class="btn btn-sm btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Ver en Google Maps
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const html = infoGuiaHtml + remitenteHtml + destinatarioHtml + informacionHtml + quienRecibeHtml + piezasHtml + trazabilidadHtml + coordenadasHtml;
+            document.getElementById('resultadoTrazabilidad').innerHTML = html;
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            console.log('[v0] DOM cargado, iniciando mapa...');
-
-            // Verificar que el contenedor del mapa existe
-            var mapaContainer = document.getElementById('mapa');
-            console.log('[v0] Contenedor del mapa encontrado:', mapaContainer);
-
-            if (mapaContainer) {
-                console.log('[v0] Inicializando mapa de Leaflet en coordenadas 4.6808621, -74.1297388');
-
-                try {
-                    // Crear el mapa centrado en las coordenadas de Gofast Logistics
-                    var map = L.map('mapa').setView([4.6808621, -74.1297388], 15);
-                    console.log('[v0] Mapa creado');
-
-                    // Agregar capa de tiles de OpenStreetMap
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                        maxZoom: 19
-                    }).addTo(map);
-                    console.log('[v0] Tiles agregados');
-
-                    // Agregar marcador en la ubicación
-                    var marker = L.marker([4.6808621, -74.1297388]).addTo(map);
-                    marker.bindPopup("<b>Gofast Logistics del Sur S.A.S</b><br>Cra. 10 #45-30, Región Sur<br>Bogotá, Colombia").openPopup();
-                    console.log('[v0] Marcador agregado');
-
-                    console.log('[v0] Mapa inicializado correctamente');
-                } catch (error) {
-                    console.error('[v0] Error al inicializar el mapa:', error);
-                }
-            } else {
-                console.error('[v0] No se encontró el contenedor del mapa con id="mapa"');
-            }
-        });
-
-        // Scroll suave para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+        // Abrir modal de cotización
+        document.querySelectorAll('[onclick*="cotización"]').forEach(btn => {
+            btn.onclick = function() {
+                const modal = new bootstrap.Modal(document.getElementById('modalCotizacion'));
+                modal.show();
+                cargarProvincias();
+            };
         });
     </script>
-
 </body>
 
 </html>

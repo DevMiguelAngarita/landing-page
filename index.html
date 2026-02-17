@@ -60,11 +60,11 @@
                             <i class="fas fa-search-location"></i> Rastrear Guía
                         </button>
                     </li>
-                    <!-- <li class="nav-item ms-2">
+                    <li class="nav-item ms-2">
                         <button class="btn-login-navbar" onclick="alert('Módulo de inicio de sesión en desarrollo')">
                             <i class="fas fa-user-circle"></i> Ingresar
                         </button>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </div>
@@ -911,7 +911,7 @@
         });
 
         // CONFIGURACIÓN DE LA API
-        const API_BASE_URL = 'https://sdw.com.co/Gofastcr/api'; // Actualizar con tu dominio
+        const API_BASE_URL = 'http://localhost/costa-rica/api'; // Actualizar con tu dominio
         const API_KEY = 'demo_key_12345'; // Actualizar con tu API Key
 
         // ========== FUNCIONES PARA CARGAR PROVINCIAS, CANTONES Y DISTRITOS ==========
@@ -1236,7 +1236,11 @@
                     const modal = new bootstrap.Modal(document.getElementById('modalTrazabilidad'));
                     modal.show();
                 } else {
-                    alert('Error: ' + result.message);
+                    // Mostrar alert con el error
+                    const errorMessage = result.details ? 
+                        `${result.error}\n\n${result.details}` : 
+                        result.error || result.message || 'Error desconocido';
+                    alert(errorMessage);
                 }
             } catch (error) {
                 console.error('[v0] Error en rastreo:', error);
